@@ -1,113 +1,128 @@
-Poverty Level Prediction from Satellite Imagery
-An unsupervised machine learning project that uses deep learning features to classify satellite images into different poverty levels. The project includes an interactive web application built with Streamlit for real-time predictions.
+# 🌍 Poverty Level Prediction from Satellite Imagery
 
-Project Overview
-This project explores the potential of using publicly available satellite imagery to identify economic well-being in a region. By applying a combination of transfer learning and unsupervised clustering, the model can group images into distinct categories corresponding to 'Poor', 'Middle Class', and 'Rich' areas without requiring pre-labeled data.
+An **unsupervised machine learning** project that uses deep learning features to classify satellite images into different poverty levels.  
+Includes an **interactive Streamlit web app** for real-time predictions.
 
-The core methodology involves:
+---
 
-Feature Extraction: Using a pre-trained ResNet50 model to convert each satellite image into a high-dimensional feature vector.
+## 🚀 Project Overview
 
-Clustering: Applying the K-Means algorithm to group these feature vectors into three distinct clusters.
+This project explores how publicly available **satellite imagery** can help identify economic well-being in a region.  
+By combining **transfer learning** and **unsupervised clustering**, the model groups images into categories — **Poor**, **Middle Class**, and **Rich** — without pre-labeled data.
 
-Prediction: Building an interactive web application with Streamlit that allows a user to upload a new satellite image and see its predicted poverty level in real-time.
+### Core Methodology
+1. **Feature Extraction:**  
+   Uses a pre-trained **ResNet50** model to convert each image into a high-dimensional feature vector.
+2. **Clustering:**  
+   Applies **K-Means** to group feature vectors into three clusters.
+3. **Prediction:**  
+   An **interactive Streamlit app** allows users to upload new satellite images and view predicted poverty levels in real time.
 
-Features
-Deep Feature Extraction: Leverages the power of a state-of-the-art computer vision model (ResNet50).
+---
 
-Unsupervised Learning: Does not require manually labeled training data, making it highly scalable.
+## ✨ Features
 
-Interactive Web UI: A user-friendly Streamlit interface to upload images and view predictions instantly.
+- **Deep Feature Extraction:** Uses state-of-the-art computer vision models (ResNet50).  
+- **Unsupervised Learning:** No need for labeled training data.  
+- **Interactive Web UI:** Streamlit interface for instant predictions.  
+- **Kaggle Deployment:** Run the full pipeline inside Kaggle with **ngrok** exposure.
 
-Kaggle Deployment: Includes a setup to run the entire application within a Kaggle Notebook, exposed to the web via ngrok.
+---
 
-Technologies Used
-Backend & Modeling: Python, PyTorch, Torchvision, scikit-learn, OpenCV
+## 🧠 Technologies Used
 
-Frontend: Streamlit
+| Category | Tools |
+|-----------|-------|
+| **Backend & Modeling** | Python, PyTorch, Torchvision, scikit-learn, OpenCV |
+| **Frontend** | Streamlit |
+| **Environment** | Kaggle Notebooks, Jupyter |
+| **Deployment Tunneling** | pyngrok |
 
-Environment: Kaggle Notebooks, Jupyter
+---
 
-Deployment Tunneling: pyngrok
+## ⚙️ Setup and Installation
 
-Setup and Installation
-There are two primary ways to run this project: on your local machine or directly within a Kaggle Notebook.
+There are two main ways to run this project:
 
-1. Running on a Kaggle Notebook (Recommended)
-This is the easiest way to get started, as the environment and dataset are managed by Kaggle.
+### **1️⃣ Running on Kaggle (Recommended)**
 
-Step 1: Setup the Notebook
+#### Step 1: Setup the Notebook
+- Create a new **Kaggle Notebook**.  
+- Add dataset: `sandeshbhat/satellite-images-to-predict-povertyafrica`.  
+- Enable **Internet** in notebook settings.  
+- Add secrets under **Add-ons → Secrets**:
+  - `KAGGLE_USERNAME`
+  - `KAGGLE_KEY`
+  - `NGROK_AUTHTOKEN`
 
-Create a new Kaggle Notebook.
+#### Step 2: Run the Code
+- The notebook has two main cells:
+  1. Writes `app.py` (the Streamlit app).
+  2. Installs dependencies and runs the app via ngrok.
+- After execution, click the **public `.ngrok.io` URL** to view your app live.
 
-Add the dataset by clicking "+ Add data" and searching for sandeshbhat/satellite-images-to-predict-povertyafrica.
+---
 
-Enable Internet in the notebook's settings panel on the right.
+### **2️⃣ Running on Local Machine**
 
-Add your secrets using the "Add-ons" > "Secrets" menu:
-
-KAGGLE_USERNAME: Your Kaggle username.
-
-KAGGLE_KEY: Your Kaggle API key from the kaggle.json file.
-
-NGROK_AUTHTOKEN: Your authentication token from the ngrok dashboard.
-
-Step 2: Run the Code
-
-The project's Kaggle Notebook contains two cells.
-
-Run the first cell to write the Streamlit application code to a file named app.py.
-
-Run the second cell to install the required libraries and launch the Streamlit app via an ngrok tunnel.
-
-Click the public .ngrok.io URL printed in the output to access your live application.
-
-2. Running on a Local Machine
-Step 1: Clone the Repository
-
-Bash
-
+#### Step 1: Clone the Repository
+```bash
 git clone https://github.com/your-username/your-repository-name.git
 cd your-repository-name
-Step 2: Create a Virtual Environment (Recommended)
+```
 
-Bash
-
+#### Step 2: Create a Virtual Environment
+```bash
 python -m venv venv
-source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-Step 3: Install Dependencies
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
 
-Bash
-
+#### Step 3: Install Dependencies
+```bash
 pip install -r requirements.txt
-(You will need to create a requirements.txt file containing streamlit, torch, torchvision, scikit-learn, opencv-python, kaggle, and pyngrok).
+```
 
-Step 4: Download the Dataset
+`requirements.txt` should include:
+```
+streamlit
+torch
+torchvision
+scikit-learn
+opencv-python
+kaggle
+pyngrok
+```
 
-Set up the Kaggle API by placing your kaggle.json file in the appropriate directory (e.g., ~/.kaggle/ on Linux/macOS).
-
-Download the dataset:
-
-Bash
-
+#### Step 4: Download the Dataset
+```bash
 kaggle datasets download -d sandeshbhat/satellite-images-to-predict-povertyafrica -p data/ --unzip
-You will need to modify the image_dir path in app.py to point to data/nigeria_archive/images.
+```
+> Make sure `app.py` points to `data/nigeria_archive/images`.
 
-Step 5: Run the Streamlit App
-
-Bash
-
+#### Step 5: Run the Streamlit App
+```bash
 streamlit run app.py
-Usage
-Once the application is running, open the provided URL in your browser.
+```
 
-Click the "Browse files" button to upload a .png satellite image.
+---
 
-The application will process the image and display the predicted poverty level ('Poor', 'Middle Class', or 'Rich').
+## 🖥️ Usage
 
-Future Improvements
-Supervised Learning: Fine-tune the ResNet50 model using a small set of labeled images to potentially improve accuracy.
+1. Open the app URL in your browser.  
+2. Upload a `.png` satellite image.  
+3. View the predicted poverty level:
+   - **Poor**
+   - **Middle Class**
+   - **Rich**
 
-Explore Other Models: Experiment with different pre-trained models (e.g., EfficientNet, Vision Transformer) for feature extraction.
+---
 
-Persistent Deployment: Deploy the application on a permanent cloud service like Streamlit Community Cloud, Heroku, or AWS.
+## 🔮 Future Improvements
+
+- **Supervised Learning:** Fine-tune ResNet50 with labeled data.  
+- **Model Exploration:** Try models like EfficientNet or Vision Transformer.  
+- **Persistent Deployment:** Host on Streamlit Cloud, Heroku, or AWS for long-term access.
+
+---
+
+**Developed with ❤️ using PyTorch and Streamlit**
