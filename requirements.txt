@@ -1,0 +1,7 @@
+streamlit
+torch
+torchvision
+numpy
+scikit-learn==1.2.2
+opencv-python-headless
+Pillow
