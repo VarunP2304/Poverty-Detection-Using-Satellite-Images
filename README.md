@@ -1,4 +1,4 @@
-# 🛰️ Poverty Prediction from Satellite Imagery (Kaggle Notebook)
+# 🛰️ Poverty Prediction from Satellite Imagery
 
 An **unsupervised machine learning** project that predicts poverty levels directly from **satellite images**.  
 It uses **deep learning feature extraction (ResNet50)** and **K-Means clustering** — all packaged in a fully interactive **Kaggle Notebook** that needs no web app or external server.
@@ -61,7 +61,7 @@ You must **run Part 1 once** to create the model files, then **use Part 2** for 
 3. Enable **GPU Accelerator** in notebook settings.  
 4. Run all cells — this takes about **5–10 minutes**.  
 5. The notebook will generate two files in the output directory:
-   - `kmeans_model (1).joblib`
+   - `kmeans_model.joblib`
    - `image_features.npy`
 6. Save the output as a **new private Kaggle Dataset**, e.g. `poverty-prediction`.
 
